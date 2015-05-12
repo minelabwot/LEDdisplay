@@ -34,13 +34,15 @@ void loop() {
       image();
     else if(msg[0]=='L')
       draw();
+    else if(msg[0]=='M')
+      text();
   }
-  if(msg[0]=='M')
-    text();
+//  if(msg[0]=='M')
+//    text();
 }
 
 void image()
-{
+{ Serial.println("--------------image----------------");
   for(int i=0;i<8;i++)
   {
     for(int j=0;j<8;j++)
@@ -86,10 +88,12 @@ void image()
 
 void text()
 {
+  
   int time=150;
+  Serial.println("msg_display=msg.substring(6,msg.length())");
   String msg_display=msg.substring(6,msg.length());
   int longnum=msg_display.length();
-
+ 
   int color =msg.charAt(2)-48;
   int c =msg.charAt(4)-48;
 
@@ -97,44 +101,52 @@ void text()
   matrix.setTextWrap(false);
   //0:R-L  1:D-U  2:L-R  3:U-D
   matrix.setRotation(c);
-  for (int8_t x=0; x>=-longnum*6-8; x--) 
+  
+  if(msg[0]!='M'||msg_display!=msg.substring(6,msg.length()))
   {
+    msg_display=msg.substring(6,msg.length());
+    time=10;
     matrix.clear();
-    switch (color)
-    {
-    case 1:  
-      matrix.setTextColor(LED_RED);
-      break;
-    case 2:  
-      matrix.setTextColor(LED_YELLOW);
-      break;
-    case 3:  
-      matrix.setTextColor(LED_GREEN);
-      break;
-    default:
-      matrix.setTextColor(LED_RED);
-    }
-    matrix.setCursor(x+8,0);
-    matrix.print(msg_display);
-    matrix.writeDisplay();
-    if (my_serial.available() > 0)
-    {
-      msg = my_serial.readStringUntil('\n');
-      if(msg[0]!='M'||msg_display!=msg.substring(2,msg.length()))
-      {
-        msg_display=msg.substring(2,msg.length());
-        time=0;
-        matrix.clear();
-      }
-      else
-        time=150;
-    }
-    delay(time);
   }
+  else
+    time=150;
+  switch (color)
+  {
+  case 1:  
+    matrix.setTextColor(LED_RED);
+    break;
+  case 2:  
+    matrix.setTextColor(LED_YELLOW);
+    break;
+  case 3:  
+    matrix.setTextColor(LED_GREEN);
+    break;
+  default:
+    matrix.setTextColor(LED_RED);
+  }
+  int account=1;
+//  while(1){
+    for (int8_t x=0; x>=-longnum*6-8; x--) 
+    {
+      matrix.clear();
+      matrix.setCursor(x+8,0);
+      matrix.print(msg_display);
+      matrix.writeDisplay();
+      delay(time);
+    }
+//     Serial.println(account);account++;
+//     Serial.println(msg);
+//         msg = my_serial.readStringUntil('\n');
+//    if(msg_display!=msg.substring(6,msg.length())) break;
+//  }
+//  Serial.println(msg);
+//    Serial.println(msg_display);
+//      Serial.println(msg.substring(6,msg.length()));
+//  Serial.println("break");
 }
 
 void draw()
-{
+{ Serial.println("--------------draw----------------");
   int y =msg.charAt(2)-48;
   int x =msg.charAt(4)-48;
   int color =msg.charAt(6)-48;
