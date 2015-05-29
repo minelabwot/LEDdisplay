@@ -116,12 +116,12 @@
             android:textStyle="bold" android:enabled="false"
             android:layout_below="@+id/radioGroupDirection" android:layout_centerHorizontal="true"/>
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/infoImage"
-            android:background="@drawable/gu_info"
-            android:layout_alignBottom="@+id/sendButton" android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="false"/>
+    <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/infoImage"-->
+            <!--android:background="@drawable/gu_info"-->
+            <!--android:layout_alignBottom="@+id/sendButton" android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentStart="false"/>-->
 
 </RelativeLayout>

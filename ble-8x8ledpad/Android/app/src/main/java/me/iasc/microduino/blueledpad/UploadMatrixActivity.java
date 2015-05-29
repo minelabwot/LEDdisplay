@@ -216,14 +216,14 @@ public class UploadMatrixActivity extends AbstractBleControlActivity implements 
         buttonDelete.setOnClickListener(onClickListener);
         buttonSend.setOnClickListener(onClickListener);
 
-        infoButton = (ImageView) findViewById(R.id.infoImage);
-        infoButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                iascDialog();
-            }
-        });
+//        infoButton = (ImageView) findViewById(R.id.infoImage);
+//        infoButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                iascDialog();
+//            }
+//        });
 
         getActionBar().setTitle(getString(R.string.title_image) + ":" + currMatrix.getName());
         getActionBar().setDisplayHomeAsUpEnabled(true);

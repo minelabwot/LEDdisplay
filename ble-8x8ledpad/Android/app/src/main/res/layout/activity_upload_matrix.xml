@@ -91,13 +91,13 @@
             android:layout_below="@+id/saveButton"
             android:layout_alignStart="@+id/saveButton"/>
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/infoImage"
-            android:background="@drawable/gu_info"
-            android:layout_alignBottom="@+id/sendButton"
-            android:layout_alignParentStart="true"/>
+    <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/infoImage"-->
+            <!--android:background="@drawable/gu_info"-->
+            <!--android:layout_alignBottom="@+id/sendButton"-->
+            <!--android:layout_alignParentStart="true"/>-->
 
     <TextView android:id="@+id/textReturn"
               android:layout_width="match_parent"

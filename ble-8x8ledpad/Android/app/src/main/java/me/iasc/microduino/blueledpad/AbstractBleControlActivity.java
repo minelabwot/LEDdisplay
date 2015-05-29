@@ -110,7 +110,7 @@ public abstract class AbstractBleControlActivity extends Activity {
                 if (characteristicTX != null) {
                     mBluetoothLeService.setCharacteristicNotification(characteristicTX, true);
 
-                    isSerial.setText("Serial ready");
+                    isSerial.setText("实时传输");
                     updateReadyState(R.string.ready);
                 } else {
                     isSerial.setText("Serial can't be found");
@@ -165,14 +165,14 @@ public abstract class AbstractBleControlActivity extends Activity {
 
         buttonSend.setOnClickListener(onClickListener);
 
-        infoButton = (ImageView) findViewById(R.id.infoImage);
-        infoButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                iascDialog();
-            }
-        });
+//        infoButton = (ImageView) findViewById(R.id.infoImage);
+//        infoButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                iascDialog();
+//            }
+//        });
 
         getActionBar().setTitle(currDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
